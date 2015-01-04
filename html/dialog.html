@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>dialog</title>
+	<link rel="stylesheet" href="../css/dialog.css" type="text/css">
+</head>
+<body>
+	<button id="btn1">btn1</button>
+	<button id="btn2">btn2</button>
+	<script src="../modules/sea.js"></script>
+	<script>
+	seajs.config({
+		alias: {
+			jquery: '../modules/jquery.js'
+		}
+	});
+	seajs.use('../js/dialog', function(Dialog) {
+		new Dialog('#btn1').init();
+		new Dialog('#btn2').init();
+	});
+	</script>
+</body>
+</html>

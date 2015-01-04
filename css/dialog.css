@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+body {
+	padding-top: 100px;
+	height: 1000px;
+}
+button {
+	display: block;
+	margin: 0 400px 400px 400px;
+}
+.shade {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: #000;
+	opacity: 0.6;
+	filter: alpha(opacity: 60);
+}
+.box {
+	width: 400px;
+	height: 200px;
+	border: 1px solid #ccc;
+	position: absolute;
+	left: 50%;
+	margin-left: -201px;
+}
+.box .title {
+	height: 40px;
+	background: #fff;
+	border-bottom: 1px solid #0f0;
+	cursor: move;
+}
+.box .close {
+	float: right;
+	margin-right: 20px;
+}
