@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+ul {
+	background: #000;
+}
+ul li {
+	float: left;
+	width: 100px;
+	height: 26px;
+	color:#fff;
+	cursor: pointer;
+}
+.clearfix:after {
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+	content: ".";
+}
+.current {
+	color: #0f0;
+}

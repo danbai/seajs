@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>ajax</title>
+	<link rel="stylesheet" href="../css/ajax.css" type="text/css">
+</head>
+<body>
+	<ul class="clearfix">
+		<li data-html="ajax1" class="current">ajax1</li>
+		<li data-html="ajax2">ajax2</li>
+		<li data-html="ajax3">ajax3</li>
+	</ul>
+	<div id="container"></div>
+	<script src="../modules/sea.js"></script>
+	<script>
+	seajs.config({
+		alias: {
+			jquery: '../modules/jquery'
+		}
+	});
+	seajs.use('../js/ajax', function(Ajax) {
+		new Ajax('li', '#container').init();
+	});
+	</script>
+</body>
+</html>
