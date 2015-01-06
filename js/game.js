@@ -19,6 +19,7 @@ define(function(require, exports, module) {
 		this.btn = $(btn);
 		this.where = $(where);
 		this.aExist = [];
+		this.bOpe = false;
 	}
 
 	module.exports = Game;
@@ -47,31 +48,35 @@ define(function(require, exports, module) {
 					if (parseInt(self.time.text()) <= 0) {
 						clearInterval(timer);
 						self.wrap.find('span').hide();
+						self.bOpe = true;
 					}
 				}, 1000);
 			});
 
 			self.wrap.on('click', '.radius', function() {
-				var nRadius = parseInt($(this).find('span').text());
+				if (self.bOpe) {
+					var nRadius = parseInt($(this).find('span').text());
 
-				if (nRadius === self.getMin(self.aExist)) {
-					$(this).find('span').show();
+					if (nRadius === self.getMin(self.aExist)) {
+						$(this).find('span').show();
 
-					self.aExist.splice(self.aExist.indexOf(nRadius), 1);
+						self.aExist.splice(self.aExist.indexOf(nRadius), 1);
 
-					if (self.aExist.length === 0) {
-						alert('成功!');
-						self.btn[0].disabled = false;
-						self.time.text(10);
-						self.nums += 2;
-						self.aExist = [];
-						self.wrap.empty();
-						self.where.text(parseInt(self.where.text()) + 1);
+						if (self.aExist.length === 0) {
+							alert('成功!');
+							self.btn[0].disabled = false;
+							self.time.text(10);
+							self.nums += 2;
+							self.aExist = [];
+							self.wrap.empty();
+							self.where.text(parseInt(self.where.text()) + 1);
+							self.bOpe = false;
+						}
+					} else {
+						self.wrap.find('span').show();
+						alert('失败!');
+						location.reload();
 					}
-				} else {
-					self.wrap.find('span').show();
-					alert('失败!');
-					location.reload();
 				}
 			});
 		},
