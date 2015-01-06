@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>game</title>
+	<link rel="stylesheet" href="../css/game.css" type="text/css">
+</head>
+<body>
+	<p>你有10秒钟的时间记住这些数字,消失后请按从小到大的顺序点击.</p>
+	<h1>10</h1>
+	<button>开始</button>
+	<h2>1</h2>
+	<div class="wrap clearfix">
+	</div>
+	<script src="../modules/sea.js"></script>
+	<script>
+		seajs.config({
+			alias: {
+				jquery: '../modules/jquery'
+			}
+		});
+		seajs.use('../js/game', function(Game) {
+			new Game('h1', '.wrap', 'button', 'h2').init();
+		});
+	</script>
+</body>
+</html>
