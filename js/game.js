@@ -1,4 +1,21 @@
 define(function(require, exports, module) {
+	var $ = require('jquery');
+
+	$.ajax({
+		url: '../php/game.php',
+		type: 'GET',
+		async: false,
+		error: function(res) {
+			console.log(res);
+		},
+		success: function(res) {
+			console.log(res);
+			$('#rank').html(res);
+		}
+	});
+
+	var sName = prompt('请输入你的姓名', '游客');
+
 	if (!Array.prototype.indexOf) {
 		Array.prototype.indexOf = function(n) {
 			for (var i = 0; i < this.length; i++) {
@@ -10,7 +27,7 @@ define(function(require, exports, module) {
 		}
 	}
 
-	var $ = require('jquery');
+	
 
 	function Game(time, wrap, btn, where) {
 		this.nums = 3;
@@ -54,7 +71,7 @@ define(function(require, exports, module) {
 			});
 
 			self.wrap.on('click', '.radius', function() {
-				if (self.bOpe) {
+				if (self.bOpe && $(this).find('span').is(':hidden')) {
 					var nRadius = parseInt($(this).find('span').text());
 
 					if (nRadius === self.getMin(self.aExist)) {
@@ -63,17 +80,56 @@ define(function(require, exports, module) {
 						self.aExist.splice(self.aExist.indexOf(nRadius), 1);
 
 						if (self.aExist.length === 0) {
-							alert('成功!');
-							self.btn[0].disabled = false;
-							self.time.text(10);
-							self.nums += 2;
-							self.aExist = [];
-							self.wrap.empty();
-							self.where.text(parseInt(self.where.text()) + 1);
-							self.bOpe = false;
+							if (self.nums === 7) {
+								//成功
+								$.ajax({
+									url: '../php/game.php',
+									type: 'POST',
+									data: {
+										'user_ip': sName,
+										'user_scroe': 7,
+										'user_date': new Date().toString()
+									},
+									error: function(res) {
+										console.log(res);
+									},
+									success: function(res) {
+										console.log(res);
+									}
+								});
+
+								alert('成功!');
+								self.wrap.text('恭喜你过关了!');
+							} else {
+								alert('进入下一关!');
+								self.btn[0].disabled = false;
+								self.time.text(10);
+								self.nums += 2;
+								self.aExist = [];
+								self.wrap.empty();
+								self.where.text(parseInt(self.where.text()) + 1);
+								self.bOpe = false;
+							}
 						}
 					} else {
 						self.wrap.find('span').show();
+						//失败
+						$.ajax({
+							url: '../php/game.php',
+							type: 'POST',
+							data: {
+								'user_ip': sName,
+								'user_scroe': self.nums,
+								'user_date': new Date().toString()
+							},
+							error: function(res) {
+								console.log(res);
+							},
+							success: function(res) {
+								console.log(res);
+							}
+						});
+
 						alert('失败!');
 						location.reload();
 					}
@@ -94,6 +150,9 @@ define(function(require, exports, module) {
 		},
 		getMin: function(a) {
 			return Math.min.apply(Math, a);
+		},
+		getIp: function() {
+			
 		}
 	}
 });
