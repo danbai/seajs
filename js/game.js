@@ -80,14 +80,14 @@ define(function(require, exports, module) {
 						self.aExist.splice(self.aExist.indexOf(nRadius), 1);
 
 						if (self.aExist.length === 0) {
-							if (self.nums === 7) {
+							if (self.nums === 15) {
 								//成功
 								$.ajax({
 									url: '../php/game.php',
 									type: 'POST',
 									data: {
 										'user_ip': sName,
-										'user_scroe': 7,
+										'user_scroe': 'perfect',
 										'user_date': new Date().toString()
 									},
 									error: function(res) {

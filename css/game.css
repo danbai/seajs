@@ -32,4 +32,6 @@
 	top: 20px;
 	width: 200px;
 	border: 1px solid #ccc;
+	max-height: 600px;
+	overflow: auto;
 }

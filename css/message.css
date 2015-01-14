@@ -1,0 +1,59 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.wrap {
+	width: 600px;
+	margin: 50px auto 0 auto;
+}
+.wrap .title {
+	height: 40px;
+	line-height: 40px;
+}
+.wrap .title h2 {
+	float: left;
+}
+.wrap .title p {
+	float: right;
+}
+.wrap .title p span {
+	color: #f00;
+}
+.wrap .con {
+	height: 400px;
+	background: #ccc;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: auto;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+.wrap .post button {
+	float: right;
+}
+.wrap .post input {
+	width: 530px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
