@@ -1,13 +1,15 @@
 <?php
 	$con = mysql_connect('localhost', 'root');
 	mysql_select_db('books');
-	/*$sql = 'CREATE TABLE if not exists msg
+	/*$sql22 = 'CREATE TABLE if not exists msg
 			(
 				msg_id INT NOT NULL AUTO_INCREMENT,
 				msg_user VARCHAR(40) NOT NULL,
 				msg_time VARCHAR(40),
 				PRIMARY KEY (msg_id)
 			)';*/
+	$sql33 = 'ALTER TABLE msg ADD msg_con VARCHAR(400)';
+	mysql_query($sql33);
 
 	if (isset($_POST['msg_user'])) {
 		$sql2 = "INSERT INTO msg (msg_user, msg_time, msg_con)

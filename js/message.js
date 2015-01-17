@@ -56,6 +56,7 @@ $(function() {
 				},
 				success: function(res) {
 					$('.con').html(res);
+					$('.con').scrollTop($('.con')[0].scrollHeight - $('.con').height());
 				}
 			});
 		}
