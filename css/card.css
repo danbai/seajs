@@ -1,0 +1,91 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.wrap {
+	width: 400px;
+	height: 400px;
+	border: 1px solid #ccc;
+	margin: 50px auto;
+	padding: 20px;
+}
+.clearfix:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	content: '.';
+	height: 0;
+}
+#card {
+	margin-bottom: 20px;
+}
+#card li {
+	float: left;
+	width: 60px;
+	height: 70px;
+	border: 1px solid #000;
+	background: #ccc;
+	margin-left: 30px;
+	transform: rotateY(0deg);
+	transition: transform 0.5s, background 0.5s;
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 70px;
+}
+.ope {
+	margin: 20px;
+}
+#res {
+	color: #0f0;
+}
+#times {
+	color: #f00;
+}
+.btn textarea {
+	float: left;
+}
+.btn ul {
+	float: left;
+	margin-left: 20px;
+	width: 200px;
+}
+.btn ul li {
+	float: left;
+}
+.btn ul li button {
+	display: block;
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	margin: 10px;
+}
+.result {
+	position: absolute;
+	right: 220px;
+	top: 20px;
+}
+.result div {
+	width: 380px;
+	height: 200px;
+	border: 1px solid #ccc;
+	overflow: auto;
+}
+#mine_result {
+	margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

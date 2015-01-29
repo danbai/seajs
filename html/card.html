@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>24点游戏</title>
+	<link rel="stylesheet" href="../css/card.css" type="text/css">
+</head>
+<body>
+	<div class="wrap">
+		<ul id="card" class="clearfix">
+			<li data-used="false"></li>
+			<li data-used="false"></li>
+			<li data-used="false"></li>
+			<li data-used="false"></li>
+		</ul>
+		<div class="ope">
+			<button id="play">发牌</button>
+			第<span id="res">1</span>关
+			还有<span id="times"></span>次机会
+		</div>
+		<div class="btn clearfix">
+			<textarea cols="22" rows="10" readonly></textarea>
+			<ul>
+				<li class="ope_btn"><button>+</button></li>
+				<li class="ope_btn"><button>-</button></li>
+				<li class="ope_btn"><button>*</button></li>
+				<li class="ope_btn"><button>/</button></li>
+				<li class="ope_btn"><button>(</button></li>
+				<li class="ope_btn"><button>)</button></li>
+				<li><button id="del">del</button></li>
+				<li><button id="reset">重置</button></li>
+				<li><button id="save" disabled>确定</button></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="result">
+		你的成绩:
+		<div id="mine_result"></div>
+		总的成绩:
+		<div id="all_result"></div>
+	</div>
+
+
+	<script src="../modules/jquery.js"></script>
+	<script src="../js/card.js"></script>
+</body>
+</html>
